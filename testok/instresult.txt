@@ -1,0 +1,259 @@
+WARNING: mem.v:15: $readmemh: Standard inconsistency, following 1364-2005.
+WARNING: mem.v:15: $readmemh(mem.hex): Not enough words in the file for the requested range [0:1023].
+VCD info: dumpfile cpu.vcd opened for output.
+i_brk is inst 00
+i_ora is inst 01
+unknown inst 02
+unknown inst 03
+unknown inst 04
+i_ora is inst 05
+i_asl is inst 06
+unknown inst 07
+i_php is inst 08
+i_ora is inst 09
+i_asl is inst 0a
+unknown inst 0b
+unknown inst 0c
+i_ora is inst 0d
+i_asl is inst 0e
+unknown inst 0f
+i_bpl is inst 10
+i_ora is inst 11
+unknown inst 12
+unknown inst 13
+unknown inst 14
+i_ora is inst 15
+i_asl is inst 16
+unknown inst 17
+i_clc is inst 18
+i_ora is inst 19
+i_asl is inst 1a
+unknown inst 1b
+unknown inst 1c
+i_ora is inst 1d
+i_asl is inst 1e
+unknown inst 1f
+i_jsr is inst 20
+i_and is inst 21
+unknown inst 22
+unknown inst 23
+i_bit is inst 24
+i_and is inst 25
+i_rol is inst 26
+unknown inst 27
+i_plp is inst 28
+i_and is inst 29
+i_rol is inst 2a
+unknown inst 2b
+i_bit is inst 2c
+i_and is inst 2d
+i_rol is inst 2e
+unknown inst 2f
+i_bmi is inst 30
+i_and is inst 31
+unknown inst 32
+unknown inst 33
+unknown inst 34
+i_and is inst 35
+i_rol is inst 36
+unknown inst 37
+i_sec is inst 38
+i_and is inst 39
+i_rol is inst 3a
+unknown inst 3b
+unknown inst 3c
+i_and is inst 3d
+i_rol is inst 3e
+unknown inst 3f
+i_rti is inst 40
+i_eor is inst 41
+unknown inst 42
+unknown inst 43
+unknown inst 44
+i_eor is inst 45
+i_lsr is inst 46
+unknown inst 47
+i_pha is inst 48
+i_eor is inst 49
+i_lsr is inst 4a
+unknown inst 4b
+i_jmp is inst 4c
+i_eor is inst 4d
+i_lsr is inst 4e
+unknown inst 4f
+i_bvc is inst 50
+i_eor is inst 51
+unknown inst 52
+unknown inst 53
+unknown inst 54
+i_eor is inst 55
+i_lsr is inst 56
+unknown inst 57
+i_cli is inst 58
+i_eor is inst 59
+i_lsr is inst 5a
+unknown inst 5b
+unknown inst 5c
+i_eor is inst 5d
+i_lsr is inst 5e
+unknown inst 5f
+i_rts is inst 60
+i_adc is inst 61
+unknown inst 62
+unknown inst 63
+unknown inst 64
+i_adc is inst 65
+i_ror is inst 66
+unknown inst 67
+i_pla is inst 68
+i_adc is inst 69
+i_ror is inst 6a
+unknown inst 6b
+i_jmp is inst 6c
+i_adc is inst 6d
+i_ror is inst 6e
+unknown inst 6f
+i_bvs is inst 70
+i_adc is inst 71
+unknown inst 72
+unknown inst 73
+unknown inst 74
+i_adc is inst 75
+i_ror is inst 76
+unknown inst 77
+i_sei is inst 78
+i_adc is inst 79
+i_ror is inst 7a
+unknown inst 7b
+unknown inst 7c
+i_adc is inst 7d
+i_ror is inst 7e
+unknown inst 7f
+unknown inst 80
+i_sta is inst 81
+unknown inst 82
+unknown inst 83
+i_sty is inst 84
+i_sta is inst 85
+i_stx is inst 86
+unknown inst 87
+i_dey is inst 88
+i_sta is inst 89
+i_txa is inst 8a
+unknown inst 8b
+i_sty is inst 8c
+i_sta is inst 8d
+i_stx is inst 8e
+unknown inst 8f
+i_bcc is inst 90
+i_sta is inst 91
+unknown inst 92
+unknown inst 93
+i_sty is inst 94
+i_sta is inst 95
+i_stx is inst 96
+unknown inst 97
+i_tya is inst 98
+i_sta is inst 99
+i_txs is inst 9a
+unknown inst 9b
+unknown inst 9c
+i_sta is inst 9d
+i_stx is inst 9e
+unknown inst 9f
+i_ldy is inst a0
+i_lda is inst a1
+i_lda is inst a2
+unknown inst a3
+i_ldy is inst a4
+i_lda is inst a5
+i_ldx is inst a6
+unknown inst a7
+i_tay is inst a8
+i_lda is inst a9
+i_tax is inst aa
+unknown inst ab
+i_ldy is inst ac
+i_lda is inst ad
+i_ldx is inst ae
+unknown inst af
+i_bcs is inst b0
+i_lda is inst b1
+unknown inst b2
+unknown inst b3
+i_ldy is inst b4
+i_lda is inst b5
+i_ldx is inst b6
+unknown inst b7
+i_clv is inst b8
+i_lda is inst b9
+i_tsx is inst ba
+unknown inst bb
+i_ldy is inst bc
+i_lda is inst bd
+i_ldx is inst be
+unknown inst bf
+i_cpy is inst c0
+i_cmp is inst c1
+unknown inst c2
+unknown inst c3
+i_cpy is inst c4
+i_cmp is inst c5
+i_dec is inst c6
+unknown inst c7
+i_iny is inst c8
+i_cmp is inst c9
+i_dex is inst ca
+unknown inst cb
+i_cpy is inst cc
+i_cmp is inst cd
+i_dec is inst ce
+unknown inst cf
+i_bne is inst d0
+i_cmp is inst d1
+unknown inst d2
+unknown inst d3
+unknown inst d4
+i_cmp is inst d5
+i_dec is inst d6
+unknown inst d7
+i_cld is inst d8
+i_cmp is inst d9
+unknown inst da
+unknown inst db
+unknown inst dc
+i_cmp is inst dd
+i_dec is inst de
+unknown inst df
+i_cpx is inst e0
+i_sbc is inst e1
+unknown inst e2
+unknown inst e3
+i_cpx is inst e4
+i_sbc is inst e5
+i_inc is inst e6
+unknown inst e7
+i_inx is inst e8
+i_sbc is inst e9
+i_nop is inst ea
+unknown inst eb
+i_cpx is inst ec
+i_sbc is inst ed
+i_inc is inst ee
+unknown inst ef
+i_beq is inst f0
+i_sbc is inst f1
+unknown inst f2
+unknown inst f3
+unknown inst f4
+i_sbc is inst f5
+i_inc is inst f6
+unknown inst f7
+i_sed is inst f8
+i_sbc is inst f9
+unknown inst fa
+unknown inst fb
+unknown inst fc
+i_sbc is inst fd
+i_inc is inst fe
+unknown inst ff
