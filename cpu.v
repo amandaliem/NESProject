@@ -4,6 +4,9 @@
 `define F0 0
 `define F1 1 
 
+// RAM access time ~70ns?
+// NES version of 6502 doesn't use BCD 
+
 module main();
 
     initial begin
@@ -63,6 +66,29 @@ module main();
     wire i_dec = evenops && (instruction[7:4] == 12 || instruction[7:4] == 13);
     wire i_inc = evenops && (instruction[7:4] == 14 || instruction[7:4] == 15);
 
+    wire higher_half = instruction[7:4] >= 8;
+
+    // modes
+    wire immediate = (instruction == 8'ha2) || ((instruction[3:0] == 9) && isEven) || ((instruction[3:0] == 0) 
+                       && higher_half && isEven);   // requires 1 operand
+    wire absolute  = (((instruction[3:0] == 12) || (instruction[3:0] == 13) || (instruction[3:0] == 14)) 
+                       && isEven) || (instruction == 8'h20) && !indirect;   // requires 2 operands
+    wire zpg_absolute = ((instruction[3:0] == 4) || (instruction[3:0] == 5) || (instruction[3:0] == 6)) 
+                       && isEven;   // requires 1 operand
+    wire implied = (instruction == 8'h04) || (instruction == 8'h06) || (instruction == 0) || (instruction[3:0] == 8) || ((instruction[3:0] == 10) && higher_half); // 0 operands
+    wire accumulator = (instruction[3:0] == 10) && !higher_half && isEven;   // 0 operands
+    wire abs_indexed_x = ((instruction[3:0] == 12) || (instruction[3:0] == 13) || (instruction[3:0] == 14)) && isOdd && !abs_indexed_y; // 2 operands
+    wire abs_indexed_y = ((instruction[3:0] == 14) && (instruction[7:4] == 11)) || ((instruction[3:0] == 9) && isOdd); // 2 operands
+    wire zpg_indexed_x = ((instruction[3:0] == 4) || (instruction[3:0] == 5) || (instruction[3:0] == 6)) && isOdd && !zpg_indexed_y; // 1 operand
+    wire zpg_indexed_y = ((instruction[3:0] == 6) && ((instruction[7:4] == 9) || (instruction[7:4] == 11))); // 1 operand
+    wire indirect = (instruction[3:0] == 12) && (instruction[7:4] == 6);      // 2 operands
+    wire indirect_x = (instruction[3:0] == 1) && isEven;    // 1 operand
+    wire indirect_y = (instruction[3:0] == 1) && isOdd;    // 1 operand
+    wire relative = (instruction[3:0] == 0) && isOdd;      // 1 operand
+
+    modePrinter mp(clk, immediate, absolute, zpg_absolute, implied, accumulator, abs_indexed_x, abs_indexed_y, zpg_indexed_x, zpg_indexed_y, indirect, indirect_x, indirect_y, relative, instruction);
+
+
     // registers
     reg [15:0]pc = 0;
     reg [7:0] ac = 0;
@@ -85,7 +111,7 @@ module main();
         pc <= pc + 1;
         cycles <= cycles + 1;
         if (!(instruction === 8'hxx))begin
-            $display("instruction %x %d", instruction, isOdd);
+            //$display("instruction %x %d", instruction, isOdd);
             if (instruction == 8'hff)
                 $finish;
         end 
