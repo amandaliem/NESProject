@@ -1,5 +1,5 @@
 $date
-	Mon May 11 12:30:12 2015
+	Mon May 11 14:36:00 2015
 $end
 $version
 	Icarus Verilog
@@ -12,9 +12,262 @@ $var wire 1 ! cpu_clk $end
 $var wire 1 " m_clk $end
 $var wire 1 # ppu_clk $end
 $upscope $end
+$scope module main $end
+$scope module c $end
+$var wire 1 $ abs_indexed_x $end
+$var wire 1 % abs_indexed_y $end
+$var wire 1 & absolute $end
+$var wire 8 ' ac [7:0] $end
+$var wire 1 ( ac_ready $end
+$var wire 1 ) accumulator $end
+$var wire 1 * branch $end
+$var wire 1 + break $end
+$var wire 1 , carry $end
+$var wire 1 - carrybit $end
+$var wire 1 ! clk $end
+$var wire 1 . crossed $end
+$var wire 1 / decimal $end
+$var wire 1 0 evenops $end
+$var wire 1 1 flags $end
+$var wire 1 2 higher_half $end
+$var wire 1 3 i_adc $end
+$var wire 1 4 i_and $end
+$var wire 1 5 i_asl $end
+$var wire 1 6 i_bcc $end
+$var wire 1 7 i_bcs $end
+$var wire 1 8 i_beq $end
+$var wire 1 9 i_bit $end
+$var wire 1 : i_bmi $end
+$var wire 1 ; i_bne $end
+$var wire 1 < i_bpl $end
+$var wire 1 = i_brk $end
+$var wire 1 > i_bvc $end
+$var wire 1 ? i_bvs $end
+$var wire 1 @ i_clc $end
+$var wire 1 A i_cld $end
+$var wire 1 B i_cli $end
+$var wire 1 C i_clv $end
+$var wire 1 D i_cmp $end
+$var wire 1 E i_cpx $end
+$var wire 1 F i_cpy $end
+$var wire 1 G i_dec $end
+$var wire 1 H i_dex $end
+$var wire 1 I i_dey $end
+$var wire 1 J i_eor $end
+$var wire 1 K i_inc $end
+$var wire 1 L i_inx $end
+$var wire 1 M i_iny $end
+$var wire 1 N i_jmp $end
+$var wire 1 O i_jsr $end
+$var wire 1 P i_lda $end
+$var wire 1 Q i_ldx $end
+$var wire 1 R i_ldy $end
+$var wire 1 S i_lsr $end
+$var wire 1 T i_nop $end
+$var wire 1 U i_ora $end
+$var wire 1 V i_pha $end
+$var wire 1 W i_php $end
+$var wire 1 X i_pla $end
+$var wire 1 Y i_plp $end
+$var wire 1 Z i_rol $end
+$var wire 1 [ i_ror $end
+$var wire 1 \ i_rti $end
+$var wire 1 ] i_rts $end
+$var wire 1 ^ i_sbc $end
+$var wire 1 _ i_sec $end
+$var wire 1 ` i_sed $end
+$var wire 1 a i_sei $end
+$var wire 1 b i_sta $end
+$var wire 1 c i_stx $end
+$var wire 1 d i_sty $end
+$var wire 1 e i_tax $end
+$var wire 1 f i_tay $end
+$var wire 1 g i_tsx $end
+$var wire 1 h i_txa $end
+$var wire 1 i i_txs $end
+$var wire 1 j i_tya $end
+$var wire 1 k ignored $end
+$var wire 1 l immediate $end
+$var wire 1 m implied $end
+$var wire 1 n indirect $end
+$var wire 1 o indirect_x $end
+$var wire 1 p indirect_y $end
+$var wire 1 q interrupt $end
+$var wire 1 r isEven $end
+$var wire 1 s isOdd $end
+$var wire 16 t memIn [15:0] $end
+$var wire 8 u memOut [7:0] $end
+$var wire 2 v modified_reg [1:0] $end
+$var wire 1 w modify_ac $end
+$var wire 1 x modify_sp $end
+$var wire 1 y modify_x $end
+$var wire 1 z modify_y $end
+$var wire 1 { negative $end
+$var wire 8 | newvalue [7:0] $end
+$var wire 1 } oddops $end
+$var wire 5 ~ op [4:0] $end
+$var wire 8 !" operand [7:0] $end
+$var wire 8 "" operand1 [7:0] $end
+$var wire 8 #" operand2 [7:0] $end
+$var wire 1 $" overflow $end
+$var wire 1 %" overflowbit $end
+$var wire 1 &" ready $end
+$var wire 1 '" regsisters $end
+$var wire 1 (" relative $end
+$var wire 8 )" sp [7:0] $end
+$var wire 1 *" sp_ready $end
+$var wire 1 +" stack_inst $end
+$var wire 1 ," wen $end
+$var wire 16 -" write_address [15:0] $end
+$var wire 8 ." x [7:0] $end
+$var wire 1 /" x_ready $end
+$var wire 8 0" y [7:0] $end
+$var wire 1 1" y_ready $end
+$var wire 1 2" zero $end
+$var wire 1 3" zerofourc $end
+$var wire 1 4" zpg_absolute $end
+$var wire 1 5" zpg_indexed_x $end
+$var wire 1 6" zpg_indexed_y $end
+$var reg 16 7" cycles [15:0] $end
+$var reg 8 8" inst [7:0] $end
+$var reg 1 9" newinst $end
+$var reg 16 :" pc [15:0] $end
+$var reg 8 ;" res [7:0] $end
+$var reg 8 <" sr [7:0] $end
+$var reg 16 =" state [15:0] $end
+$var reg 8 >" temp_low [7:0] $end
+$var reg 1 ?" verbose $end
+$var reg 16 @" waddr [15:0] $end
+$var reg 1 A" write_enable $end
+$upscope $end
+$upscope $end
 $enddefinitions $end
 #0
 $dumpvars
+xA"
+b0xxxxxxxx @"
+1?"
+bx >"
+b1010 ="
+b110000 <"
+bx ;"
+b0 :"
+09"
+bx 8"
+b0 7"
+x6"
+x5"
+x4"
+x3"
+02"
+01"
+bz 0"
+0/"
+bz ."
+bx -"
+x,"
+x+"
+0*"
+bz )"
+x("
+z'"
+0&"
+x%"
+0$"
+bx #"
+bx ""
+bx !"
+b0xxxx ~
+x}
+bx |
+0{
+0z
+xy
+0x
+xw
+bx v
+bx u
+b0 t
+xs
+xr
+0q
+xp
+xo
+xn
+xm
+xl
+1k
+xj
+xi
+xh
+xg
+xf
+xe
+xd
+xc
+xb
+xa
+x`
+x_
+x^
+x]
+x\
+x[
+xZ
+xY
+xX
+xW
+xV
+xU
+xT
+xS
+xR
+xQ
+xP
+xO
+xN
+xM
+xL
+xK
+xJ
+xI
+xH
+xG
+xF
+xE
+xD
+xC
+xB
+xA
+x@
+x?
+x>
+x=
+x<
+x;
+x:
+x9
+x8
+x7
+x6
+x5
+x4
+x3
+x2
+x1
+x0
+0/
+0.
+x-
+0,
+1+
+x*
+x)
+0(
+b0z '
+x&
+x%
+x$
 1#
 1"
 0!
@@ -69,6 +322,13 @@ $end
 #977760
 0"
 #1024320
+bx0x0x00xxxxxxxxx -"
+b1 t
+b10101001 u
+b10101001 !"
+b1 7"
+b0 ="
+b1 :"
 1!
 1"
 #1070880
@@ -127,6 +387,104 @@ $end
 #2095200
 0"
 #2141760
+b11000000 |
+b1100 ~
+b11000000 ""
+b0 v
+1w
+1P
+0R
+0%"
+0-
+0&
+0Q
+04"
+0m
+0$
+1l
+1}
+00
+03"
+0*
+0U
+04
+0J
+03
+0b
+0D
+0^
+05
+0Z
+0S
+0[
+0c
+0G
+0K
+01
+0%
+05"
+0)
+0<
+0:
+0>
+0?
+06
+07
+0;
+08
+0E
+0F
+0@
+0_
+0B
+0a
+0C
+0A
+0`
+0+"
+0W
+0Y
+0V
+0X
+0d
+06"
+0o
+0p
+0("
+1&"
+b10 t
+0s
+1r
+12
+09
+0N
+0y
+1(
+0/"
+b0xxxxxxxx -"
+b10 7"
+b10 :"
+19"
+b10101001 8"
+0=
+0O
+0\
+0]
+0e
+0f
+0g
+0h
+0i
+0j
+0T
+0H
+0I
+0L
+0M
+0n
+b1 ="
+b11000000 u
+b11000000 !"
 1!
 1"
 #2188320
@@ -185,6 +543,18 @@ $end
 #3212640
 0"
 #3259200
+b10101010 |
+b10101010 ""
+0&"
+1{
+b11 t
+0(
+b10101010 u
+b10101010 !"
+b10110000 <"
+b11 7"
+b11 :"
+b0 ="
 1!
 1"
 #3305760
@@ -243,6 +613,26 @@ $end
 #4330080
 0"
 #4376640
+b11000000 |
+b1 v
+0w
+0P
+0l
+0}
+b11000000 ""
+1m
+1/"
+1&"
+b100 t
+1y
+0(
+b100 7"
+b100 :"
+b10101010 8"
+1e
+b1 ="
+b11101000 u
+b11101000 !"
 1!
 1"
 #4423200
@@ -301,6 +691,19 @@ $end
 #5447520
 0"
 #5494080
+b11000001 |
+b101 ~
+b11000000 ""
+b101 t
+b1101001 u
+b1101001 !"
+b11000000 ."
+b10110000 <"
+b101 7"
+b11101000 8"
+0e
+1L
+b101 :"
 1!
 1"
 #5540640
@@ -359,6 +762,32 @@ $end
 #6564960
 0"
 #6611520
+0%"
+b11000100 #"
+b10000100 |
+1-
+b0 ~
+1w
+1(
+13
+1l
+1}
+b0 v
+1&"
+0m
+0/"
+b11000000 ""
+02
+0y
+b110 t
+b110 7"
+b1101001 8"
+0L
+b110 :"
+b11000001 ."
+b10110000 <"
+b11000100 u
+b11000100 !"
 1!
 1"
 #6658080
@@ -417,6 +846,20 @@ $end
 #7682400
 0"
 #7728960
+0-
+b10000101 |
+0&"
+b0 #"
+b10000100 ""
+1,
+b111 t
+0(
+b0 u
+b0 !"
+b10110001 <"
+b111 7"
+b111 :"
+b0 ="
 1!
 1"
 #7775520
@@ -475,6 +918,29 @@ $end
 #8799840
 0"
 #8846400
+bx ""
+bx v
+b0xxxx ~
+0w
+0l
+0-
+0}
+13"
+0U
+03
+1m
+bx |
+0&"
+b1000 t
+0(
+bx #"
+b1000 7"
+b1000 :"
+b0 8"
+1=
+b1 ="
+bx u
+bx !"
 1!
 1"
 #8892960
@@ -533,6 +999,94 @@ $end
 #9917280
 0"
 #9963840
+x%"
+x-
+x@
+x_
+xB
+xa
+xC
+xA
+x`
+x$
+x3"
+xU
+x4
+xJ
+x3
+xb
+xD
+x^
+x5
+xZ
+xS
+x[
+xc
+xQ
+xG
+xK
+x1
+xW
+xY
+xV
+xX
+xm
+x5"
+bx -"
+x)
+x4"
+x}
+x0
+x<
+x:
+x>
+x?
+x6
+x7
+x;
+x8
+x*
+xE
+xF
+xR
+xw
+x+"
+xl
+x6"
+x&
+xo
+xp
+x("
+xs
+xr
+x2
+x9
+xN
+xP
+xd
+xy
+x%
+b1001 t
+b1001 7"
+bx 8"
+x=
+xO
+x\
+x]
+xe
+xf
+xg
+xh
+xi
+xj
+xT
+xH
+xI
+xL
+xM
+xn
+b1001 :"
+b10 ="
 1!
 1"
 #10010400
@@ -591,6 +1145,8 @@ $end
 #11034720
 0"
 #11081280
+b1010 7"
+b100 ="
 1!
 1"
 #11127840
@@ -649,411 +1205,5 @@ $end
 #12152160
 0"
 #12198720
-1!
-1"
-#12245280
-0"
-#12291840
-0!
-1#
-1"
-#12338400
-0"
-#12384960
-0#
-1"
-#12431520
-0"
-#12478080
-1"
-#12524640
-0"
-#12571200
-1#
-1"
-#12617760
-0"
-#12664320
-0#
-1"
-#12710880
-0"
-#12757440
-1"
-#12804000
-0"
-#12850560
-1#
-1"
-#12897120
-0"
-#12943680
-0#
-1"
-#12990240
-0"
-#13036800
-1"
-#13083360
-0"
-#13129920
-1#
-1"
-#13176480
-0"
-#13223040
-0#
-1"
-#13269600
-0"
-#13316160
-1!
-1"
-#13362720
-0"
-#13409280
-0!
-1#
-1"
-#13455840
-0"
-#13502400
-0#
-1"
-#13548960
-0"
-#13595520
-1"
-#13642080
-0"
-#13688640
-1#
-1"
-#13735200
-0"
-#13781760
-0#
-1"
-#13828320
-0"
-#13874880
-1"
-#13921440
-0"
-#13968000
-1#
-1"
-#14014560
-0"
-#14061120
-0#
-1"
-#14107680
-0"
-#14154240
-1"
-#14200800
-0"
-#14247360
-1#
-1"
-#14293920
-0"
-#14340480
-0#
-1"
-#14387040
-0"
-#14433600
-1!
-1"
-#14480160
-0"
-#14526720
-0!
-1#
-1"
-#14573280
-0"
-#14619840
-0#
-1"
-#14666400
-0"
-#14712960
-1"
-#14759520
-0"
-#14806080
-1#
-1"
-#14852640
-0"
-#14899200
-0#
-1"
-#14945760
-0"
-#14992320
-1"
-#15038880
-0"
-#15085440
-1#
-1"
-#15132000
-0"
-#15178560
-0#
-1"
-#15225120
-0"
-#15271680
-1"
-#15318240
-0"
-#15364800
-1#
-1"
-#15411360
-0"
-#15457920
-0#
-1"
-#15504480
-0"
-#15551040
-1!
-1"
-#15597600
-0"
-#15644160
-0!
-1#
-1"
-#15690720
-0"
-#15737280
-0#
-1"
-#15783840
-0"
-#15830400
-1"
-#15876960
-0"
-#15923520
-1#
-1"
-#15970080
-0"
-#16016640
-0#
-1"
-#16063200
-0"
-#16109760
-1"
-#16156320
-0"
-#16202880
-1#
-1"
-#16249440
-0"
-#16296000
-0#
-1"
-#16342560
-0"
-#16389120
-1"
-#16435680
-0"
-#16482240
-1#
-1"
-#16528800
-0"
-#16575360
-0#
-1"
-#16621920
-0"
-#16668480
-1!
-1"
-#16715040
-0"
-#16761600
-0!
-1#
-1"
-#16808160
-0"
-#16854720
-0#
-1"
-#16901280
-0"
-#16947840
-1"
-#16994400
-0"
-#17040960
-1#
-1"
-#17087520
-0"
-#17134080
-0#
-1"
-#17180640
-0"
-#17227200
-1"
-#17273760
-0"
-#17320320
-1#
-1"
-#17366880
-0"
-#17413440
-0#
-1"
-#17460000
-0"
-#17506560
-1"
-#17553120
-0"
-#17599680
-1#
-1"
-#17646240
-0"
-#17692800
-0#
-1"
-#17739360
-0"
-#17785920
-1!
-1"
-#17832480
-0"
-#17879040
-0!
-1#
-1"
-#17925600
-0"
-#17972160
-0#
-1"
-#18018720
-0"
-#18065280
-1"
-#18111840
-0"
-#18158400
-1#
-1"
-#18204960
-0"
-#18251520
-0#
-1"
-#18298080
-0"
-#18344640
-1"
-#18391200
-0"
-#18437760
-1#
-1"
-#18484320
-0"
-#18530880
-0#
-1"
-#18577440
-0"
-#18624000
-1"
-#18670560
-0"
-#18717120
-1#
-1"
-#18763680
-0"
-#18810240
-0#
-1"
-#18856800
-0"
-#18903360
-1!
-1"
-#18949920
-0"
-#18996480
-0!
-1#
-1"
-#19043040
-0"
-#19089600
-0#
-1"
-#19136160
-0"
-#19182720
-1"
-#19229280
-0"
-#19275840
-1#
-1"
-#19322400
-0"
-#19368960
-0#
-1"
-#19415520
-0"
-#19462080
-1"
-#19508640
-0"
-#19555200
-1#
-1"
-#19601760
-0"
-#19648320
-0#
-1"
-#19694880
-0"
-#19741440
-1"
-#19788000
-0"
-#19834560
-1#
-1"
-#19881120
-0"
-#19927680
-0#
-1"
-#19974240
-0"
-#20020800
 1!
 1"

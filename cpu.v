@@ -26,26 +26,35 @@
 `define F 15
 
 // REGISTERS //
-`define AC 0;
-`define X 1;
-`define Y 2;
-`define SP 3;
+`define AC 0
+`define X 1
+`define Y 2
+`define SP 3
+
+// OPS // 
+`define ADD 0
+`define SUB 1
+`define AND 2
+`define OR  3
+`define XOR 4
+`define INC 5
+`define DEC 6
+`define SHR 7
+`define SHL 8
+`define RTR 9
+`define RTL 10
+`define LD  12
 
 // RAM access time ~70ns?
 // NES version of 6502 doesn't use BCD 
 
 module cpu(input clk);
 
-    //initial begin
-    //    $dumpfile("cpu.vcd");
-    //    $dumpvars(1,cpu);
-    //end
+ 
 
-    reg verbose = 0;
 
-    // clock
-    //wire clk;
-    //master_clock c0(clk);
+
+    reg verbose = 1;
 
     reg [15:0] cycles = 0;
     reg [7:0] registers[3:0];
@@ -53,14 +62,76 @@ module cpu(input clk);
     //              REGISTER UPDATE             //
     wire modify_ac = i_lda | i_adc;
     wire modify_x = i_tax | i_inx;
-    wire ac_ready = immediate ? (state == `F1) : 0;
-    wire x_ready = (i_tax | i_inx) ? (state == `F1) : 0; 
+    wire modify_y = 0;
+    wire modify_sp = 0;
 
+    wire [1:0]modified_reg = modify_ac ? `AC :
+                        modify_x  ? `X  :
+                        modify_y  ? `Y  :
+                        modify_sp ? `SP :
+                        2'bxx;           
+    wire ac_ready = immediate ? (state == `F1) : 
+                    0;
+    wire x_ready = (i_tax | i_inx) ? (state == `F1) : 0; 
+    wire y_ready = 0;
+    wire sp_ready = 0;
+
+    wire [7:0] ac = regsisters[`AC];
+    wire [7:0] x = registers[`X];
+    wire [7:0] y = registers[`Y];
+    wire [7:0] sp = registers[`SP];
+
+    wire ready = modify_ac ? ac_ready : 
+                 modify_x  ? x_ready  :
+                 modify_y  ? y_ready  :
+                 modify_sp ? sp_ready :
+                 0;
+
+     wire [4:0] op = i_adc ? `ADD :
+                     i_sbc ? `SUB : 
+                     i_and ? `AND :
+                     i_ora ? `OR  : 
+                     i_eor ? `XOR : 
+                     (i_inx | i_iny) ? `INC :
+                     (i_dex | i_dey) ? `DEC :
+                     i_lsr ? `SHR :
+                     i_asl ? `SHL :
+                     i_ror ? `RTR :
+                     i_rol ? `RTL :
+                     (i_lda | i_ldx | i_ldy | i_tax | 
+                     i_tay | i_tsx | i_txa | i_txs | 
+                     i_tya) ? `LD : 4'bx;
+/*
     wire [7:0] newvalue = i_lda ? operand : 
                           i_adc && immediate ? registers[0] + operand + carry:
                           i_tax ? registers[0] : 
                           i_inx ? registers[1] + 1 : 8'hxx;
+*/
 
+    wire [7:0] operand1 = i_adc | i_sbc | i_and | i_ora | i_eor | 
+                         ((i_lsr | i_asl | i_ror | i_rol) & accumulator) 
+                         | i_tax | i_tay ? registers[`AC] : 
+                          i_inx | i_dex | i_txa | i_txs ? registers[`X] : 
+                          i_iny | i_dey | i_tya ? registers[`Y] : 
+                          i_tsx ? registers[`SP] : 
+                          (i_lda | i_ldx | i_ldy) ? memOut : 8'hxx;
+
+    wire [7:0] operand2 = i_adc | i_sbc | i_and | i_ora | i_eor ? memOut : 8'hxx;
+                          
+
+    wire [7:0] newvalue = (op == `ADD) ? operand1 + operand2 + carry : 
+                          (op == `SUB) ? operand1 - operand2 - carry :
+                          (op == `AND) ? operand1 & operand2 :
+                          (op == `OR)  ? operand1 | operand2 : 
+                          (op == `XOR) ? operand1 ^ operand2 : 
+                          (op == `INC) ? operand1 + 1 : 
+                          (op == `DEC) ? operand1 - 1 :
+                          (op == `SHR) ? operand1 >> 1 : 
+                          (op == `SHL) ? operand1 << 1 :
+                          (op == `RTR) ? (operand1 >> 1) & (operand1 << 7) :
+                          (op == `RTL) ? (operand1 << 1) & ((operand1 >> 7) & 8'h01) :
+                          (op == `LD)  ? operand1 : 
+                          8'hxx;
 
     reg [7:0] temp_low = 8'hx;
 
@@ -69,19 +140,29 @@ module cpu(input clk);
                     ((registers[0][7] == 1) && (operand[7] == 1)) ||
                     ((registers[0][7] != operand[7]) && (newvalue[7] == 0)): 0;
 
+    wire overflowbit = i_adc && immediate ? 
+                    ((registers[0][7] == 1) && (operand[7] == 1) && (newvalue[7] != 1) ||
+                     (registers[0][7] == 0) && (operand[7] == 0) && (newvalue[7] != 0)) : 0; 
+
     always @(posedge clk) begin
-        if (modify_ac && ac_ready)begin
+        // only change one register at a time 
+        if (ready) begin
             if (carrybit)begin
                 if (verbose)
                     $display("carrying!");
                 sr[`CARRY] <= 1;
             end
-            registers[0] <= newvalue;
-            $display("ac <= %x", newvalue);
-        end
-        if (modify_x && x_ready)begin
-            registers[1] <= newvalue;
-            $display("x <= %x", newvalue);
+            if (overflowbit)begin
+                if (verbose)
+                    $display("overflowed!");
+                sr[`OVERFLOW] <= 1;
+            end
+            if (newvalue[7] == 1)
+                sr[`NEGATIVE] <= 1;
+            else
+                sr[`NEGATIVE] <= 0;
+            registers[modified_reg] <= newvalue;
+            $display("regs[%d] <= %x", modified_reg, newvalue);
         end
     end
 
@@ -227,7 +308,7 @@ module cpu(input clk);
 
     // registers
     reg [15:0]pc = 0;
-    reg [7:0] sr = 0;
+    reg [7:0] sr = 8'b00110000;
 
     /*
     reg [7:0] ac = 0;
@@ -300,7 +381,7 @@ module cpu(input clk);
                     $display("F2 %x %x", memOut, inst);
                 if (memOut === 8'hxx)
                     state <= `HLT;
-                if (crossed)begin
+                if (crossed) begin
                     write_enable <= 1;
                 end
                 else begin

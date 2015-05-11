@@ -3,6 +3,8 @@
 `timescale 1ps/1ps
 `define CYCLES 2
 
+// based on readings, 1 cycle latency between memory and output... 
+
 module mem(input clk,
     // read ports
     input [15:0]raddr, output [7:0]rdata, 

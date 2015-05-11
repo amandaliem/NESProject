@@ -11,6 +11,7 @@ master_clock c0(m_clk);
     initial begin
         $dumpfile("cpu.vcd");
         $dumpvars(1,main);
+        $dumpvars(1,c);
     end
 
 
