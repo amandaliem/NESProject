@@ -34,18 +34,18 @@
 // RAM access time ~70ns?
 // NES version of 6502 doesn't use BCD 
 
-module main();
+module cpu(input clk);
 
-    initial begin
-        $dumpfile("cpu.vcd");
-        $dumpvars(1,main);
-    end
+    //initial begin
+    //    $dumpfile("cpu.vcd");
+    //    $dumpvars(1,cpu);
+    //end
 
     reg verbose = 0;
 
     // clock
-    wire clk;
-    clock c0(clk);
+    //wire clk;
+    //master_clock c0(clk);
 
     reg [15:0] cycles = 0;
     reg [7:0] registers[3:0];
