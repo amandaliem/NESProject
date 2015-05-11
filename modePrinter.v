@@ -13,7 +13,8 @@ module modePrinter(
             input indirect_x,
             input indirect_y,
             input relative,
-            input [7:0]instruction
+            input [7:0]instruction,
+            input newinst
 );
 
 
@@ -22,6 +23,7 @@ wire unknown = !immediate && !absolute && !zpg_absolute && !implied && !accumula
                && !indirect && !indirect_x && !indirect_y && !relative;
 
 always @(posedge clk)begin
+    if (newinst) begin
     if (immediate)
         $display("immediate %x", instruction);
     if (absolute)
@@ -50,7 +52,7 @@ always @(posedge clk)begin
         $display("relative %x", instruction);
    if (unknown)
         $display("unknown %x", instruction);
-        
+   end
 end
 
 
