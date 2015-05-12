@@ -19,13 +19,12 @@
 
 
 module alu (input clk,
-            input enable,
             input [7:0]operand1,
             input [7:0]operand2,
-            input carrybit,
-            input [4:0]op_number,
+            input carry,
+            input [4:0]op,
             output [7:0]result,
-            output carry,
+            output carrybit,
             output overflow
            );
 
@@ -57,15 +56,13 @@ module alu (input clk,
                      (registers[0][7] == 0) && (operand[7] == 0) && (newvalue[7] != 0)) : 0; 
 
     assign result = output_reg;
-    assign carry = carry_reg;
+    assign carrybit = carry_reg;
     assign overflow = overflow_reg;
 
     // ALU operations take 1 cycle 
     always @(posedge clk)begin
-        if (enable)begin
-            output_reg <= operation_result;
-            carry_reg <= carry_wire;
-            overflow_reg <= overflow_wire;
-        end
+        output_reg <= operation_result;
+        carry_reg <= carry_wire;
+        overflow_reg <= overflow_wire;
     end
 endmodule
