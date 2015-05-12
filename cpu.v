@@ -7,6 +7,8 @@
 `define HLT 2
 `define F2 3
 `define HLT2 4
+`define M0 5
+`define WB 6
 
 // STATUS REGISTER BITS//
 `define NEGATIVE 7
@@ -50,50 +52,40 @@
 
 module cpu(input clk);
 
- 
-
-
-
-    reg verbose = 1;
-
+    // set to 1 for print statments
+    reg verbose = 0;
+    reg status_v = 0;
     reg [15:0] cycles = 0;
-    reg [7:0] registers[3:0];
 
+
+    reg [7:0] registers[3:0];
     //              REGISTER UPDATE             //
-    wire modify_ac = i_lda | i_adc;
-    wire modify_x = i_tax | i_inx;
-    wire modify_y = 0;
-    wire modify_sp = 0;
+    wire modify_ac = i_lda | i_adc | i_and | i_asl | i_eor | i_lsr | i_ora | 
+                     i_rol | i_ror | i_sbc | i_txa | i_tya;
+    wire modify_x = i_tax | i_inx | i_tsx | i_dex | i_ldx;
+    wire modify_y = i_dey | i_iny | i_ldy | i_tay;
+    wire modify_sp = i_txs;
 
     wire [1:0]modified_reg = modify_ac ? `AC :
-                        modify_x  ? `X  :
-                        modify_y  ? `Y  :
-                        modify_sp ? `SP :
-                        2'bxx;           
-    wire ac_ready = immediate ? (state == `F1) : 
-                    0;
-    wire x_ready = (i_tax | i_inx) ? (state == `F1) : 0; 
-    wire y_ready = 0;
-    wire sp_ready = 0;
+                             modify_x  ? `X  :
+                             modify_y  ? `Y  :
+                             modify_sp ? `SP :
+                             2'bxx;       
 
-    wire [7:0] ac = regsisters[`AC];
-    wire [7:0] x = registers[`X];
-    wire [7:0] y = registers[`Y];
-    wire [7:0] sp = registers[`SP];
+    wire is_done = immediate | implied | accumulator ? (state == `F1) : 
+                   absolute  ? (state == `M0) :
+                   zpg_absolute ? (state == `M0) :
+                   0;
 
-    wire ready = modify_ac ? ac_ready : 
-                 modify_x  ? x_ready  :
-                 modify_y  ? y_ready  :
-                 modify_sp ? sp_ready :
-                 0;
+    wire ready = (modify_ac | modify_x | modify_y | modify_sp) & is_done;
 
-     wire [4:0] op = i_adc ? `ADD :
+    wire [4:0] op = i_adc ? `ADD :
                      i_sbc ? `SUB : 
                      i_and ? `AND :
                      i_ora ? `OR  : 
                      i_eor ? `XOR : 
-                     (i_inx | i_iny) ? `INC :
-                     (i_dex | i_dey) ? `DEC :
+                     (i_inx | i_iny | i_inc) ? `INC :
+                     (i_dex | i_dey | i_dec) ? `DEC :
                      i_lsr ? `SHR :
                      i_asl ? `SHL :
                      i_ror ? `RTR :
@@ -128,17 +120,18 @@ module cpu(input clk);
                           (op == `DEC) ? operand1 - 1 :
                           (op == `SHR) ? operand1 >> 1 : 
                           (op == `SHL) ? operand1 << 1 :
-                          (op == `RTR) ? (operand1 >> 1) & (operand1 << 7) :
-                          (op == `RTL) ? (operand1 << 1) & ((operand1 >> 7) & 8'h01) :
+                          (op == `RTR) ? (operand1 >> 1) & (carry << 7 | 8'h7F) :
+                          (op == `RTL) ? (operand1 << 1) | (carry):
                           (op == `LD)  ? operand1 : 
                           8'hxx;
 
     reg [7:0] temp_low = 8'hx;
 
     // need to test overflow cases
-    wire carrybit = i_adc && immediate ? 
-                    ((registers[0][7] == 1) && (operand[7] == 1)) ||
-                    ((registers[0][7] != operand[7]) && (newvalue[7] == 0)): 0;
+    wire carrybit = (op == `ADD) ? 
+                    ((operand1[7] == 1) && (operand2[7] == 1)) ||
+                    ((operand1[7] != operand2[7]) && (newvalue[7] == 0)): 
+                    (op == `SUB) ? (newvalue <= 0) : 0; // FIX THIS 
 
     wire overflowbit = i_adc && immediate ? 
                     ((registers[0][7] == 1) && (operand[7] == 1) && (newvalue[7] != 1) ||
@@ -161,25 +154,47 @@ module cpu(input clk);
                 sr[`NEGATIVE] <= 1;
             else
                 sr[`NEGATIVE] <= 0;
+            if (newvalue == 0)
+                sr[`ZERO] <= 1;
+            else 
+                sr[`ZERO] <= 0;
+            if (i_rol | i_asl) begin
+                sr[`CARRY] <= operand1[7];
+            end
+            if (i_ror | i_lsr)begin
+                sr[`CARRY] <= operand1[0];
+             end
+            
             registers[modified_reg] <= newvalue;
-            $display("regs[%d] <= %x", modified_reg, newvalue);
+            $display("#regs[%d] <= %x", modified_reg, newvalue);
         end
     end
 
+    wire reading = (absolute | zpg_absolute) && !i_sta && !i_stx && !i_sty;
+
     // fetch 
     wire [7:0]memOut;
-    wire [15:0]memIn = {8'h00, pc}; 
+    wire [15:0]memIn = absolute & reading & (state == `F2) ? {memOut, temp_low} :
+                       zpg_absolute & reading & (state == `F1) ? {8'h00, memOut} : 
+                      {8'h00, pc}; 
 
-    wire wen = write_enable;
+    wire wen = zpg_absolute && !reading ? (state == `F1) : 
+               writeback ? (state == `M0) : write_enable;
+
     reg write_enable = 1'bx;
-    wire [15:0] write_address = absolute ? {memOut , temp_low} : waddr;
+    wire [15:0] write_address = absolute ? {memOut , temp_low} : 
+                                zpg_absolute & !writeback ? {8'h00, memOut} : 
+                                writeback & (state == `M0) ? addresscache : waddr;
+    wire [7:0] reswire = zpg_absolute & !writeback ? write_value : 
+                         writeback & (state == `M0) ? writeback_value : res;
     reg [7:0]res = 8'bxx;
     reg [15:0]waddr = 8'bxx;
 
-    mem i0(clk,memIn,memOut, wen, write_address, res);
+    mem i0(clk,memIn,memOut, wen, write_address, reswire);
 
     reg [15:0] state = `INIT;
     reg [7:0]inst = 8'hxx;
+    reg [15:0] addresscache;
 
     // inst decoding // 
     wire isOdd = inst[7:4] % 2 == 1;
@@ -301,6 +316,17 @@ module cpu(input clk);
 
     reg newinst = 0;
 
+    wire [7:0] write_value = i_sta ? registers[`AC] :
+                             i_stx ? registers[`X]  :
+                             i_sty ? registers[`Y]  : 
+                             i_asl ? 0              :
+                             i_dec ? 0              :
+                             i_inc ? 0              :
+                             i_lsr ? 0              :
+                             i_rol ? 0              :
+                             i_ror ? 0              :
+                             8'hxx;
+
     // for debugging 
     //modePrinter mp(clk, immediate, absolute, zpg_absolute, implied, accumulator, abs_indexed_x, abs_indexed_y, zpg_indexed_x, zpg_indexed_y, indirect, indirect_x, indirect_y, relative, inst, newinst);
 
@@ -309,6 +335,16 @@ module cpu(input clk);
     // registers
     reg [15:0]pc = 0;
     reg [7:0] sr = 8'b00110000;
+
+    wire writeback = i_asl | i_dec | i_inc | i_lsr | i_rol | i_ror;
+
+    wire [7:0] writeback_value = i_asl ? (memOut << 1 ) :
+                           i_dec ? (memOut - 1 )  : 
+                           i_inc ? (memOut + 1 )  :
+                           i_lsr ? (memOut >> 1 ) :
+                           i_rol ? (memOut << 1) | (carry) : 
+                           i_ror ? (memOut >> 1) & (carry << 7 | 8'h7F) : 8'hxx;
+  
 
     /*
     reg [7:0] ac = 0;
@@ -338,18 +374,23 @@ module cpu(input clk);
         case (state)
             `INIT: begin
                 pc <= pc + 1;
+                registers[0] = 0;
+                registers[1] = 0;
+                registers[2] = 0;
+                registers[3] = 0;
                 state <= `F0;
             end
             `F0: begin
+                write_enable <= 0;
                 if (verbose)
                     $display("F0 %x %x", memOut, inst);
-                if (verbose)
+                if (status_v)
                     $display("sr %b", sr);
                 if (memOut == 0)
                     state <= `HLT;
                 if (memOut === 8'hxx)
                     state <= `HLT;
-                if (implied === 1'bx || !implied ) 
+                if (implied === 1'bx | !(implied | accumulator) )
                     state <= `F1;
                 inst <= memOut;
                 newinst <= 1;
@@ -358,21 +399,26 @@ module cpu(input clk);
             `F1 : begin
                 if (verbose)
                     $display("F1 %x %x", memOut, inst);
-                   //$display("F1 %x \n", memOut);
-                //$display("instruction is %x", inst);
                 if (memOut === 8'hxx)
                     state <= `HLT;
+
                 if (immediate)
                     state <= `F0;
-                pc <= pc + 1;
+                if (!zpg_absolute) // || !reading)
+                    pc <= pc + 1;
                 if (absolute)begin
                     temp_low <= memOut;
-                    write_enable <= 1;
+                    if (!reading) 
+                       write_enable <= 1;
                     state <= `F2;
+                end
+                if (zpg_absolute)begin 
+                    addresscache <= memIn;
+                    state <= `M0;
                 end
                 if (i_sta && absolute)
                     res <= registers[0];
-                if (implied)begin
+                if (implied | accumulator)begin
                     inst <= memOut;
                 end
             end
@@ -381,15 +427,48 @@ module cpu(input clk);
                     $display("F2 %x %x", memOut, inst);
                 if (memOut === 8'hxx)
                     state <= `HLT;
-                if (crossed) begin
+                if (crossed & !reading) begin
                     write_enable <= 1;
                 end
                 else begin
                     write_enable <= 0;
-                    state <= `F0;
+                    if (!reading)
+                        state <= `F0;
+                    else begin
+                        addresscache <= {8'h00, memOut};
+                        state <= `M0;
+                    end
                 end
-                pc <= pc +  1;
+                if (!absolute || !reading)
+                    pc <= pc + 1;
             end
+            `M0 : begin
+                if (verbose)
+                    $display("M0 %x %x", memOut, inst);
+                if (memOut == 8'hxx)
+                    state <= `HLT;
+                else  
+                    state <= `F0;
+                if (writeback & i_rol)
+                    sr[`CARRY] <= memOut[7];
+                if (writeback & i_ror)
+                    sr[`CARRY] <= memOut[0];
+                if (writeback & writeback_value == 0)
+                    sr[`ZERO] <= 1;
+                else 
+                    sr[`ZERO] <= 0;
+                if (writeback & writeback_value[7] == 1)
+                    sr[`NEGATIVE] <= 1;
+                else
+                    sr[`NEGATIVE] <= 0;
+                pc <= pc + 1;
+            end
+          /*  `WB : begin
+                if (verbose)
+                    $display("WB %x %x", memOut, inst);
+                pc <= pc + 1;
+                state <= `F0;
+            end */
             `HLT : begin
                 state <= `HLT2;
             end

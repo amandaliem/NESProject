@@ -1,1 +1,0 @@
-instprinter ip(clk, i_adc,i_and,i_asl,i_bcc,i_bcs,i_beq,i_bit,i_bmi,i_bne,i_bpl,i_brk,i_bvc,i_bvs,i_clc,i_cld,i_cli,i_clv,i_cmp,i_cpx,i_cpy,i_dec,i_dex,i_dey,i_eor,i_inc,i_inx,i_iny,i_jmp,i_jsr,i_lda,i_ldx,i_ldy,i_lsr,i_nop,i_ora,i_pha,i_php,i_pla,i_plp,i_rol,i_ror,i_rti,i_rts,i_sbc,i_sec,i_sed,i_sei,i_sta,i_stx,i_sty,i_tax,i_tay,i_tsx,i_txa,i_txs,i_tya, inst);

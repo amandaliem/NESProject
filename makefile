@@ -3,13 +3,13 @@ VFILES=$(wildcard *.v)
 cpu : $(VFILES) Makefile
 	iverilog -o cpu $(VFILES)
 
-run : cpu
-	timeout 10 ./cpu
-
 clean :
-	rm -rf cpu mem.hex
+	rm -rf cpu *.hex *.ok
 
-test : $(patsubst %.ok,%,$(wildcard test?.ok))
+copy :  
+	cp testcases/*.hex testcases/*.ok ./
+
+test : $(sort $(patsubst %.ok,%, $(wildcard test?.ok)))
 
 test% : cpu mem%.hex
 	@echo -n "test$* ... "
