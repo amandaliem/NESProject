@@ -10,6 +10,8 @@
 `define M0 5
 `define WB 6
 `define X0 7
+`define M1 8
+`define M2 9
 
 // STATUS REGISTER BITS//
 `define NEGATIVE 7
@@ -54,7 +56,7 @@
 module cpu(input clk);
 
     // set to 1 for print statments
-    reg verbose = 0;
+    reg verbose = 1;
     reg status_v = 0;
     reg [15:0] cycles = 0;
 
@@ -163,7 +165,7 @@ module cpu(input clk);
 
     // modes
     wire immediate = (inst == 8'ha2) || (low(inst, 9) && isEven) || (low(inst, 0) && higher_half && isEven);            // 1 operand
-    wire absolute  = ((low(inst, `C) || low(inst, `D) || low(inst, `E)) && isEven) || (inst == 8'h20) && !indirect;     // 2 operands
+    wire absolute  = (((low(inst, `C) || low(inst, `D) || low(inst, `E)) && isEven) || (inst == 8'h20)) && !indirect;     // 2 operands
     wire zpg_absolute = (low(inst, 4) || low(inst, 5) || low(inst, 6)) && isEven;                                       // 1 operand
     wire implied = (inst == 8'h40) || (inst == 8'h60) || (inst == 0) || low(inst, 8) || (low(inst, `A) && higher_half); // 0 operands
     wire accumulator = low(inst, `A) && !higher_half && isEven;                                                         // 0 operands
@@ -274,8 +276,10 @@ module cpu(input clk);
     wire [7:0]memOut;
     wire [15:0]memIn = absolute & reading & (state == `F2) ? {memOut, temp_low} :
                        zpg_absolute & reading & (state == `F1) ? {8'h00, memOut} : 
+                      indirect & (state == `F2) ? {memOut, temp_low} : 
+                      indirect & (state == `M0) ? {memOut, temp_low} + 1: 
                       {8'h00, pc}; 
-
+/*
     wire wen = zpg_absolute && !reading ? (state == `F1) : 
                writeback ? (state == `M0) : write_enable;
 
@@ -284,7 +288,7 @@ module cpu(input clk);
                                 writeback & (state == `M0) ? addresscache : waddr;
     wire [7:0] reswire = zpg_absolute & !writeback ? write_value : 
                          writeback & (state == `M0) ? writeback_value : res;
-
+*/
     reg write_enable = 1'bx;
     reg [7:0]res = 8'bxx;
     reg [15:0]waddr = 8'bxx;
@@ -300,12 +304,6 @@ module cpu(input clk);
     wire reading = (absolute | zpg_absolute) && !i_sta && !i_stx && !i_sty;
     wire writeback = i_asl | i_dec | i_inc | i_lsr | i_rol | i_ror;
 
-    wire [7:0] writeback_value = i_asl ? (memOut << 1 ) :
-                                 i_dec ? (memOut - 1 )  : 
-                                 i_inc ? (memOut + 1 )  :
-                                 i_lsr ? (memOut >> 1 ) :
-                                 i_rol ? (memOut << 1) | (carry) : 
-                                 i_ror ? (memOut >> 1) & (carry << 7 | 8'h7F) : 8'hxx;
     // status bits
     wire negative  = sr[7];
     wire overflow  = sr[6];
@@ -389,7 +387,7 @@ module cpu(input clk);
                     state <= `F0;
                     pc = pc + 1;
                 end
-                if (absolute) begin
+                if (absolute | indirect) begin
                     pc <= pc + 1;
                     temp_low <= memOut; 
                     state <= `F2;
@@ -405,6 +403,8 @@ module cpu(input clk);
                     else
                         state <= `M0;
                 end
+                //if (indirect)
+                //    state <= `F2;
                 //if (implied | accumulator)begin
                 //    inst <= memOut;         // decoding completed!
                 //end
@@ -414,12 +414,16 @@ module cpu(input clk);
                if (verbose)
                     $display("F2 %x %x", memOut, inst);
                     
-                if (!reading) begin// lda, ldx, ldy done after this step
+                if (!reading & !indirect) begin// lda, ldx, ldy done after this step
                     write_enable <= 1;
                     waddr <= {memOut, temp_low};
                     res <= write_value;
                     state <= `WB;
                     //pc <= pc + 1;
+                end
+                else if (i_jmp & absolute)begin
+                    pc <= {memOut, temp_low} + 1;
+                    state <= `F0;
                 end
                 else begin
                     addresscache <= {memOut, temp_low}; 
@@ -436,12 +440,36 @@ module cpu(input clk);
                 if (writeback)begin // may have to move this
                     state <= `X0;
                 end
+                if (indirect)begin
+                    temp_low <= memOut;
+                    state <= `M1;
+                end 
                 else begin 
                     pc <= pc + 1;
                     state <= `F0;
                 end
             end
-          `X0 : begin
+            `M1 : begin
+                // ------------- first byte of indirect ----------------- //
+                if (verbose)    
+                    $display("M1 %x %x", memOut, inst);
+                $display("temp low is %x", memOut);
+                pc <= {memOut, temp_low} + 1;
+                state <= `F0;
+            end
+            `M2 : begin
+                // ------------- second byte of indirect ---------------- // 
+                if (verbose)    
+                    $display("M2 %x %x", memOut, inst);
+                if (i_jmp)begin
+                    $display("indirect jump %x", {memOut, temp_low} + 1);
+                    state <= `F0;
+                end
+                else 
+                    state <= `F0; // change this
+            end
+       
+            `X0 : begin
                 // --------------- using the ALU for writeback --------------- //
                  if (verbose)
                     $display("WB %x %x", memOut, inst);
