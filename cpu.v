@@ -56,7 +56,7 @@
 module cpu(input clk);
 
     // set to 1 for print statments
-    reg verbose = 1;
+    reg verbose = 0;
     reg status_v = 0;
     reg [15:0] cycles = 0;
 
@@ -277,7 +277,7 @@ module cpu(input clk);
     wire [15:0]memIn = absolute & reading & (state == `F2) ? {memOut, temp_low} :
                        zpg_absolute & reading & (state == `F1) ? {8'h00, memOut} : 
                       indirect & (state == `F2) ? {memOut, temp_low} : 
-                      indirect & (state == `M0) ? {memOut, temp_low} + 1: 
+                      indirect & (state == `M0) ? incremented_address : 
                       {8'h00, pc}; 
 /*
     wire wen = zpg_absolute && !reading ? (state == `F1) : 
@@ -329,6 +329,8 @@ module cpu(input clk);
                              i_ror ? 0              :
                              8'hxx;
 
+    reg [15:0] incremented_address = 16'hxx;
+
     // for debugging 
     //modePrinter mp(clk, immediate, absolute, zpg_absolute, implied, accumulator, abs_indexed_x, abs_indexed_y, zpg_indexed_x, zpg_indexed_y, indirect, indirect_x, indirect_y, relative, inst, newinst);
 
@@ -376,11 +378,9 @@ module cpu(input clk);
                     $display("sr %b", sr);
 
                 if (accumulator | implied) begin
-                    // memOut is discarded & re-read
-                    //inst <= memOut;
+                    // memOut is discarded & re-read: save the address 
                     addresscache <= memOut;
                     state <= `F0;
-                    //pc <= pc + 1;
                 end
                 else if (immediate) begin
                     // memOut is only operand - no further reads needed 
@@ -427,6 +427,7 @@ module cpu(input clk);
                 end
                 else begin
                     addresscache <= {memOut, temp_low}; 
+                    incremented_address <= {memOut, temp_low} + 1;
                     state <= `M0;
                 end
             end
@@ -440,7 +441,7 @@ module cpu(input clk);
                 if (writeback)begin // may have to move this
                     state <= `X0;
                 end
-                if (indirect)begin
+                else if (indirect)begin
                     temp_low <= memOut;
                     state <= `M1;
                 end 
@@ -450,25 +451,12 @@ module cpu(input clk);
                 end
             end
             `M1 : begin
-                // ------------- first byte of indirect ----------------- //
+                // ------------- second byte of indirect ----------------- //
                 if (verbose)    
                     $display("M1 %x %x", memOut, inst);
-                $display("temp low is %x", memOut);
                 pc <= {memOut, temp_low} + 1;
                 state <= `F0;
             end
-            `M2 : begin
-                // ------------- second byte of indirect ---------------- // 
-                if (verbose)    
-                    $display("M2 %x %x", memOut, inst);
-                if (i_jmp)begin
-                    $display("indirect jump %x", {memOut, temp_low} + 1);
-                    state <= `F0;
-                end
-                else 
-                    state <= `F0; // change this
-            end
-       
             `X0 : begin
                 // --------------- using the ALU for writeback --------------- //
                  if (verbose)
