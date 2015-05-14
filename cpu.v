@@ -207,6 +207,8 @@ module cpu(input clk);
                         (i_pla | i_plp) ? (state == `F2 | state == `F0) : state == `F0;
 
     wire ready = ((state == `WB) & (i_pha | i_php)) | ((state == `M0) & (i_pla | i_plp)) | 
+                 ((state == `WB) & i_jsr) |
+                 ((state == `M0) & i_rts) |
                  ((modify_ac | modify_x | modify_y | modify_sp | modify_sr) & register_ren);
     wire [7:0] newvalue = (i_pla | i_plp) ? temp_stack : alu_result;
     reg [7:0] temp_stack;
@@ -257,15 +259,16 @@ module cpu(input clk);
 
     // ------------- ALU --------------- //
 
-    wire [4:0] op = (state == `F1) && (zpg_indexed_x | zpg_indexed_y | abs_indexed_x | abs_indexed_y) ? `ADD :  
+    wire [4:0] op = 
+                    (state == `F1) && (zpg_indexed_x | zpg_indexed_y | abs_indexed_x | abs_indexed_y) ? `ADD :  
                     (state == `F1) && (indirect_y) ? `INC :
                     (state == `F2) && (indirect_y) ? `ADD :
                     (state == `F2) && (abs_indexed_x | abs_indexed_y) & alu_carry ? `INC :  
                     (state == `F1) && indirect_x ? `ADD :
                     (state == `F2) & (indirect_x) ?  `INC :
                     (i_cmp | i_cpx | i_cpy) ? `SUB :
-                    i_pha | i_php ? `DEC :
-                    i_pla | i_plp ? `INC :
+                    i_pha | i_php | i_jsr ? `DEC :
+                    i_pla | i_plp | i_rts ? `INC :
                     i_adc ? `ADD :
                     i_sbc ? `SUB : 
                     i_bit | i_and ? `AND :
@@ -285,7 +288,11 @@ module cpu(input clk);
     wire[7:0] x = registers[`X];
     wire [7:0] y = registers[`Y];
 
-    wire [7:0] operand1 = (state == `F1) & (zpg_indexed_x | zpg_indexed_y | abs_indexed_x | abs_indexed_y | indirect_x | indirect_y) ? memOut :
+    wire [7:0] operand1 = (state == `M0) & i_jsr ? registers[`SP] :
+                          (state == `X0) & i_jsr ? alu_result :
+                          (state == `F1) & i_rts ? registers[`SP] : 
+                          (state == `F2) & i_rts ? alu_result :
+                          (state == `F1) & (zpg_indexed_x | zpg_indexed_y | abs_indexed_x | abs_indexed_y | indirect_x | indirect_y) ? memOut :
                           (state == `F2) & (indirect_y) ? memOut : 
                           (state == `F2) & (abs_indexed_x | abs_indexed_y) & alu_carry ? memOut :
                           (state == `F2) & (indirect_x) ? alu_result :
@@ -326,7 +333,9 @@ module cpu(input clk);
 
     reg [7:0] temp_low = 8'hx;
     wire [7:0]memOut;
-    wire [15:0]memIn = relative & branch_taken & (state == `F1) ? pc_value :
+    wire [15:0]memIn = (state == `F2) & i_rts ? {8'h01, alu_result} :
+                       (state == `M0) & i_rts ? {8'h01, alu_result} :
+                       relative & branch_taken & (state == `F1) ? pc_value :
                        (state == `F1) & (indirect_y) ? {8'h00, memOut} : 
                        (state == `F2) & (indirect_y) ? {8'h00, alu_result} :
                        (state == `M0) & (indirect_y) ? {memOut, alu_result} :
@@ -448,7 +457,7 @@ module cpu(input clk);
                 end
                 // --------------------------------- //
                 
-                if (!(inst === 8'hxx) & (accumulator | (implied)) & !branch_taken) begin
+                if (!(inst === 8'hxx) & (accumulator | implied) & !branch_taken & !i_rts) begin
                     inst <= addresscache; 
                     pc <= pc + 1;
                 end
@@ -459,7 +468,6 @@ module cpu(input clk);
             end
             `F1 : begin
                 // ----------------- decode --------------------- //
-                // memOut = firstoperand
                 if (verbose)
                     $display("F1 %x %x", memOut, inst);
                 if (memOut === 8'hxx | i_brk)
@@ -488,6 +496,8 @@ module cpu(input clk);
                     end
                     else if (i_pla | i_plp)
                         state <= `M0;
+                    else if (i_jsr | i_rts) 
+                        state <= `F2;
                     else
                         state <= `F0;
                 end 
@@ -551,6 +561,9 @@ module cpu(input clk);
                     pc <= {memOut, temp_low} + 1;
                     state <= `F0;
                 end
+                else if (i_rts) begin
+                    state <= `M0;
+                end
                 else begin  
                     if (zpg_indexed_x | zpg_indexed_y | i_bit)begin
                         // alu_result has needed memIn address
@@ -571,6 +584,16 @@ module cpu(input clk);
                     $display("M0 %x %x", memOut, inst);
                 if (store)begin
                     state <= `WB;
+                end
+                else if (i_jsr)begin
+                    state <= `X0;
+                    res <= pc[7:0];
+                    waddr <= {8'h01, registers[`SP]};
+                    write_enable <= 1;
+                end
+                else if (i_rts) begin
+                    temp_low <= memOut;
+                    state <= `X0;
                 end
                 else if (writeback) begin // may have to move this
                     state <= `X0;
@@ -625,6 +648,16 @@ module cpu(input clk);
                     state <= `F0;
                     pc <= pc + 1;
                  end
+                 else if (i_jsr)begin
+                    state <= `WB;
+                    res <= pc[15:8];
+                    waddr <= {8'h01, alu_result};
+                    pc <= addresscache;
+                 end
+                 else if (i_rts) begin
+                    state <= `WB;
+                    pc <= {temp_low, memOut};
+                 end
                  else if ((zpg_indexed_y | zpg_indexed_x) & store) begin
                     state <= `WB;
                     res <= write_value;
@@ -673,7 +706,7 @@ module cpu(input clk);
                 write_enable <= 0;
                 if (verbose)
                     $display("WB %x %x", memOut, inst);
-                if (!implied)
+                if (!implied | i_rts)
                     pc <= pc + 1;
                 state <= `F0;
                 cycles <= cycles + 1;

@@ -14,11 +14,17 @@ master_clock c0(m_clk);
         $dumpvars(1,c);
     end
 
-
 wire ppu_clk;
 wire cpu_clk;
 clock_gen c1(m_clk, ppu_clk, cpu_clk);
 
+wire [15:0]address_bus_in;
+wire [7:0] data_bus_in;
+wire [15:0]address_bus_out;
+wire [7:0] data_bus_out;
+wire wen;
+
 cpu c(cpu_clk);
+
 
 endmodule
