@@ -1,0 +1,87 @@
+Describe your implementation:
+
+What worked?
+6502 CPU Processor
+    - Master clock (simulated 21.4773 MHz) used to create 
+      CPU clock (masterclock / 12 = 1.79 MHz) 
+      & PPU clock (masterclock / 4 = 5.37MHz)
+      This was done by creating clock periods of 12 cycles,
+      with the cpu clock running every 12th cycle, and the 
+      ppu clock running on cycles 0, 3, 6, & 9.
+
+      __  __  __  __  __  __  __  __  __  __  __  __   
+master  __  __  __  __  __  __  __  __  __  __  __  __
+      0   1   2   3   4   5   6   7   8   9   10  11
+                                                  __
+CPU   ____________________________________________  __
+
+      __          __           __          __
+PPU     __________   __________  __________  _________
+
+    - To our knowledge, the CPU handles all documented 
+      instructions (with the exception of RTI), 
+      closely following the number of 
+      cycles specified for each instruction (according to
+      the synertek programming manual, which we included
+      as a pdf in this project submission).
+    - The CPU is implemented as a state machine that is 
+      "pipelined" - a term that seems to be used losely 
+      in the 6502 documentation. It is pipelined in that
+      the last stage of each instruction happens concurrently
+      with fetching the next instruction. 
+    - We did not program for speed/efficiency
+      of this CPU, but to resemble the original timings as 
+      close as possible. We were concerned that inaccurate 
+      cycle times would affect the display. 
+    - Included at the top of cpu.v are 3 verbose-mode flags:
+      - verbose: a statement is printed at the begining of each
+                 state, specifying the state, current instruction, 
+                 & memOut value.
+      - status_v: a statement is printed at each "F1" stage (the
+                 stage after instruction effects are committed) 
+                  printing out each bit of the status register
+                  the 6502 Status register had the following flags:
+          7       6     5    4      3        2         1     0
+        SIGN  OVERFLOW  1  BREAK  DECIMAL  INTERRUPT  ZERO CARRY
+      - cycles_v: a statement is printed at F0 upon completion
+                 of every instruction, showing how many cycles it
+                 took to complete this instruction.
+    - in the directory testcases/ there are our written tests,
+      each with a .asm file of the pre-assembled code. If desired,
+      more tests may be added by following the same mem<number>.hex
+      convention.
+    - to run tests from the testcases folder, use the commands 
+      (sequentially):
+      make clean
+      make copy
+      make test 
+        
+What didn't work?
+    - We did not have time to complete the PPU
+    - We did not have time to correct for page-crossing 
+      instructions (if an indexed instruction ended up 
+      on a different page than the original address). 
+
+What did you learn?
+    - We learned extensively about the 6502 CPU and its 
+    instruction set. It is different from projects we have
+    done in class first by the sheer number of instructions 
+    that needed to be implemented (55), but also in the 
+    different modes of addressing that are available
+    (which increases the number of distinct opcodes to much 
+    more than 55). 
+    - This processor also had stack instructions,
+    operating on the section of memory $0100 to $01ff. We 
+    implemented instructions that could push and pull from
+    the stack, as well as the jump to subroutine and return
+    from subroutine instructions which utilized the stack to
+    store memory addresses. 
+    - We learned the difference between immediate, zeropage,
+    absolute, and indirect addressing, and how to use the 
+    X and Y registers on the 6502 to employ indexed forms 
+    of those address modes. 
+    - The 6502 has a status register that is used heavily 
+    for conditional jumps. We learned how programmers can 
+    use explicit instructions to change the status register
+    or just use arithmetic instructions to indirectly 
+    change it. 

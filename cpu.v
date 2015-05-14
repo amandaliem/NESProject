@@ -59,6 +59,7 @@ module cpu(input clk);
     reg verbose = 0;
     reg status_v = 0;
     reg cycles_v = 0;
+
     reg [15:0] cycles = 0;
 
     // ------- Instruction decoding -------- // 

@@ -1,6 +1,0 @@
-#regs[0] <= 30
-#mem[01ff] <= 30
-#regs[3] <= fe
-#regs[0] <= 40
-#regs[3] <= ff
-#regs[0] <= 30

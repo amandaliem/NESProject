@@ -1,5 +1,0 @@
-#regs[1] <= 01
-#regs[0] <= aa
-#mem[00a1] <= aa
-#regs[1] <= 02
-#mem[00a2] <= aa

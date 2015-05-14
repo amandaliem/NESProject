@@ -26,5 +26,4 @@ wire wen;
 
 cpu c(cpu_clk);
 
-
 endmodule
