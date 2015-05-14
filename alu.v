@@ -33,7 +33,7 @@ module alu (input clk,
     reg overflow_reg = 1'hx;
 
     wire [7:0]operation_result = op == `ADD ? operand1 + operand2 + carry:
-                                 op == `SUB ? operand1 - operand2 - carry:
+                                 op == `SUB ? operand1 - operand2 - !carry:
                                  op == `AND ? operand1 & operand2 :
                                  op == `OR  ? operand1 | operand2 :
                                  op == `XOR ? operand1 ^ operand2 :
@@ -48,12 +48,12 @@ module alu (input clk,
     
     wire carry_wire = (op == `ADD) ? 
                     ((operand1[7] == 1) && (operand2[7] == 1)) ||
-                    ((operand1[7] != operand2[7]) && (newvalue[7] == 0)): 
-                    (op == `SUB) ? (newvalue <= 0) : 0; // FIX THIS 
+                    ((operand1[7] != operand2[7]) && (operation_result[7] == 0)): 
+                    (op == `SUB) ? (operation_result <= 0) : 0; 
 
-    wire overflow_wire = i_adc && immediate ? 
-                    ((registers[0][7] == 1) && (operand[7] == 1) && (newvalue[7] != 1) ||
-                     (registers[0][7] == 0) && (operand[7] == 0) && (newvalue[7] != 0)) : 0; 
+    wire overflow_wire = (i_adc | i_bit | i_clv | i_plp | i_rti | i_sbc) ? 
+                    ((operand1[7] == 1) && (operand2[7] == 1) && (operation_result[7] != 1) ||
+                     (operand1[7] == 0) && (operand2[7] == 0) && (operation_result[7] != 0)) : 0; 
 
     assign result = output_reg;
     assign carrybit = carry_reg;

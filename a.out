@@ -1,24 +1,4436 @@
 WARNING: mem.v:18: $readmemh: Standard inconsistency, following 1364-2005.
 WARNING: mem.v:18: $readmemh(mem.hex): Not enough words in the file for the requested range [0:65536].
 VCD info: dumpfile cpu.vcd opened for output.
-F0 a0 xx
-F1 01 a0
-#regs[2] <= 01
-F0 a2 a0
-F1 02 a2
-#regs[1] <= 02
-F0 a9 a2
-F1 33 a9
-#regs[0] <= 33
-F0 9d a9
-F1 00 9d
-F2 00 9d
-WB 99 9d
-#mem[0002] <= 33
-F0 99 9d
-F1 00 99
-F2 00 99
-WB xx 99
-#mem[0001] <= 33
-F0 xx 99
-HLT xx xx
+F0 a2 xx
+F1 08 a2
+sr 00110000
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110000
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110000
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110000
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+WB e0 8e
+#mem[0200] <= 07
+F0 e0 8e
+F1 03 e0
+sr 00110001
+F0 d0 e0
+F1 f8 d0
+sr 00110001
+relative
+branch taken!
+F0 a2 d0
+F1 08 a2
+sr 00110001
+#regs[1] <= 08
+F0 ca a2
+F1 8e ca
+sr 00110001
+#regs[1] <= 07
+F0 00 ca
+acc or implied
+F1 00 8e
+sr 00110001
+F2 02 8e
+** VVP Stop(0) **
+** Flushing output streams.
+** Current simulation time is 2584359360 ticks.
+** Continue **
