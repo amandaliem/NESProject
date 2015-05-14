@@ -1,0 +1,371 @@
+Analysis & Synthesis report for FPGA_nes
+Thu May 14 04:05:10 2015
+Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis IP Cores Summary
+  6. Analysis & Synthesis Messages
+  7. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus II License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++--------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                             ;
++-----------------------------+--------------------------------------------+
+; Analysis & Synthesis Status ; Failed - Thu May 14 04:05:10 2015          ;
+; Quartus II 64-Bit Version   ; 14.1.0 Build 186 12/03/2014 SJ Web Edition ;
+; Revision Name               ; FPGA_nes                                   ;
+; Top-level Entity Name       ; FPGA_nes                                   ;
+; Family                      ; Cyclone V                                  ;
+; Logic utilization (in ALMs) ; N/A until Partition Merge                  ;
+; Total registers             ; N/A until Partition Merge                  ;
+; Total pins                  ; N/A until Partition Merge                  ;
+; Total virtual pins          ; N/A until Partition Merge                  ;
+; Total block memory bits     ; N/A until Partition Merge                  ;
+; Total PLLs                  ; N/A until Partition Merge                  ;
+; Total DLLs                  ; N/A until Partition Merge                  ;
++-----------------------------+--------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CGXFC5C6F27C7     ;                    ;
+; Top-level entity name                                                           ; FPGA_nes           ; FPGA_nes           ;
+; Family name                                                                     ; Cyclone V          ; Cyclone IV GX      ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                       ; Off                ; Off                ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Synthesis Seed                                                                  ; 1                  ; 1                  ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                          ;
++--------+--------------+---------+--------------+--------------+------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance              ; IP Include File ;
++--------+--------------+---------+--------------+--------------+------------------------------+-----------------+
+; Altera ; RAM: 2-PORT  ; 14.1    ; N/A          ; N/A          ; |FPGA_nes|mem:inst1          ; mem.v           ;
+; Altera ; altera_pll   ; 14.1    ; N/A          ; N/A          ; |FPGA_nes|master_clock:inst9 ; master_clock.v  ;
++--------+--------------+---------+--------------+--------------+------------------------------+-----------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
+    Info: Processing started: Thu May 14 04:04:42 2015
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA_nes -c FPGA_nes
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file fpga_nes.bdf
+    Info (12023): Found entity 1: FPGA_nes
+Warning (12019): Can't analyze file -- file nes.v is missing
+Info (12021): Found 1 design units, including 1 entities, in source file clock_gen.v
+    Info (12023): Found entity 1: clock_gen
+Info (12021): Found 1 design units, including 1 entities, in source file master_clock.v
+    Info (12023): Found entity 1: master_clock
+Info (12021): Found 1 design units, including 1 entities, in source file master_clock/master_clock_0002.v
+    Info (12023): Found entity 1: master_clock_0002
+Warning (12019): Can't analyze file -- file alu.v is missing
+Warning (12019): Can't analyze file -- file cpu.v is missing
+Info (12021): Found 1 design units, including 1 entities, in source file mem.v
+    Info (12023): Found entity 1: mem
+Info (12021): Found 2 design units, including 2 entities, in source file cpu.sv
+    Info (12023): Found entity 1: alu
+    Info (12023): Found entity 2: cpu
+Info (12127): Elaborating entity "FPGA_nes" for the top level hierarchy
+Info (12128): Elaborating entity "clock_gen" for hierarchy "clock_gen:inst"
+Warning (10230): Verilog HDL assignment warning at clock_gen.v(34): truncated value with size 32 to match size of target (4)
+Info (12128): Elaborating entity "master_clock" for hierarchy "master_clock:inst9"
+Info (12128): Elaborating entity "master_clock_0002" for hierarchy "master_clock:inst9|master_clock_0002:master_clock_inst"
+Info (12128): Elaborating entity "altera_pll" for hierarchy "master_clock:inst9|master_clock_0002:master_clock_inst|altera_pll:altera_pll_i"
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
+Info (12130): Elaborated megafunction instantiation "master_clock:inst9|master_clock_0002:master_clock_inst|altera_pll:altera_pll_i"
+Info (12133): Instantiated megafunction "master_clock:inst9|master_clock_0002:master_clock_inst|altera_pll:altera_pll_i" with the following parameter:
+    Info (12134): Parameter "fractional_vco_multiplier" = "false"
+    Info (12134): Parameter "reference_clock_frequency" = "22.0 MHz"
+    Info (12134): Parameter "operation_mode" = "normal"
+    Info (12134): Parameter "number_of_clocks" = "1"
+    Info (12134): Parameter "output_clock_frequency0" = "22.000000 MHz"
+    Info (12134): Parameter "phase_shift0" = "0 ps"
+    Info (12134): Parameter "duty_cycle0" = "50"
+    Info (12134): Parameter "output_clock_frequency1" = "0 MHz"
+    Info (12134): Parameter "phase_shift1" = "0 ps"
+    Info (12134): Parameter "duty_cycle1" = "50"
+    Info (12134): Parameter "output_clock_frequency2" = "0 MHz"
+    Info (12134): Parameter "phase_shift2" = "0 ps"
+    Info (12134): Parameter "duty_cycle2" = "50"
+    Info (12134): Parameter "output_clock_frequency3" = "0 MHz"
+    Info (12134): Parameter "phase_shift3" = "0 ps"
+    Info (12134): Parameter "duty_cycle3" = "50"
+    Info (12134): Parameter "output_clock_frequency4" = "0 MHz"
+    Info (12134): Parameter "phase_shift4" = "0 ps"
+    Info (12134): Parameter "duty_cycle4" = "50"
+    Info (12134): Parameter "output_clock_frequency5" = "0 MHz"
+    Info (12134): Parameter "phase_shift5" = "0 ps"
+    Info (12134): Parameter "duty_cycle5" = "50"
+    Info (12134): Parameter "output_clock_frequency6" = "0 MHz"
+    Info (12134): Parameter "phase_shift6" = "0 ps"
+    Info (12134): Parameter "duty_cycle6" = "50"
+    Info (12134): Parameter "output_clock_frequency7" = "0 MHz"
+    Info (12134): Parameter "phase_shift7" = "0 ps"
+    Info (12134): Parameter "duty_cycle7" = "50"
+    Info (12134): Parameter "output_clock_frequency8" = "0 MHz"
+    Info (12134): Parameter "phase_shift8" = "0 ps"
+    Info (12134): Parameter "duty_cycle8" = "50"
+    Info (12134): Parameter "output_clock_frequency9" = "0 MHz"
+    Info (12134): Parameter "phase_shift9" = "0 ps"
+    Info (12134): Parameter "duty_cycle9" = "50"
+    Info (12134): Parameter "output_clock_frequency10" = "0 MHz"
+    Info (12134): Parameter "phase_shift10" = "0 ps"
+    Info (12134): Parameter "duty_cycle10" = "50"
+    Info (12134): Parameter "output_clock_frequency11" = "0 MHz"
+    Info (12134): Parameter "phase_shift11" = "0 ps"
+    Info (12134): Parameter "duty_cycle11" = "50"
+    Info (12134): Parameter "output_clock_frequency12" = "0 MHz"
+    Info (12134): Parameter "phase_shift12" = "0 ps"
+    Info (12134): Parameter "duty_cycle12" = "50"
+    Info (12134): Parameter "output_clock_frequency13" = "0 MHz"
+    Info (12134): Parameter "phase_shift13" = "0 ps"
+    Info (12134): Parameter "duty_cycle13" = "50"
+    Info (12134): Parameter "output_clock_frequency14" = "0 MHz"
+    Info (12134): Parameter "phase_shift14" = "0 ps"
+    Info (12134): Parameter "duty_cycle14" = "50"
+    Info (12134): Parameter "output_clock_frequency15" = "0 MHz"
+    Info (12134): Parameter "phase_shift15" = "0 ps"
+    Info (12134): Parameter "duty_cycle15" = "50"
+    Info (12134): Parameter "output_clock_frequency16" = "0 MHz"
+    Info (12134): Parameter "phase_shift16" = "0 ps"
+    Info (12134): Parameter "duty_cycle16" = "50"
+    Info (12134): Parameter "output_clock_frequency17" = "0 MHz"
+    Info (12134): Parameter "phase_shift17" = "0 ps"
+    Info (12134): Parameter "duty_cycle17" = "50"
+    Info (12134): Parameter "pll_type" = "General"
+    Info (12134): Parameter "pll_subtype" = "General"
+Info (12128): Elaborating entity "mem" for hierarchy "mem:inst1"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "mem:inst1|altsyncram:altsyncram_component"
+Info (12130): Elaborated megafunction instantiation "mem:inst1|altsyncram:altsyncram_component"
+Info (12133): Instantiated megafunction "mem:inst1|altsyncram:altsyncram_component" with the following parameter:
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK0"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "init_file" = "mem.hex"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "65536"
+    Info (12134): Parameter "numwords_b" = "65536"
+    Info (12134): Parameter "operation_mode" = "DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_b" = "CLOCK0"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "widthad_a" = "16"
+    Info (12134): Parameter "widthad_b" = "16"
+    Info (12134): Parameter "width_a" = "8"
+    Info (12134): Parameter "width_b" = "8"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_aov1.tdf
+    Info (12023): Found entity 1: altsyncram_aov1
+Info (12128): Elaborating entity "altsyncram_aov1" for hierarchy "mem:inst1|altsyncram:altsyncram_component|altsyncram_aov1:auto_generated"
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_dla.tdf
+    Info (12023): Found entity 1: decode_dla
+Info (12128): Elaborating entity "decode_dla" for hierarchy "mem:inst1|altsyncram:altsyncram_component|altsyncram_aov1:auto_generated|decode_dla:decode2"
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_61a.tdf
+    Info (12023): Found entity 1: decode_61a
+Info (12128): Elaborating entity "decode_61a" for hierarchy "mem:inst1|altsyncram:altsyncram_component|altsyncram_aov1:auto_generated|decode_61a:rden_decode_b"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_tfb.tdf
+    Info (12023): Found entity 1: mux_tfb
+Info (12128): Elaborating entity "mux_tfb" for hierarchy "mem:inst1|altsyncram:altsyncram_component|altsyncram_aov1:auto_generated|mux_tfb:mux3"
+Info (12128): Elaborating entity "cpu" for hierarchy "cpu:inst2"
+Warning (10036): Verilog HDL or VHDL warning at cpu.sv(142): object "i_jsr" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at cpu.sv(143): object "i_rti" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at cpu.sv(144): object "i_rts" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at cpu.sv(211): object "i_nop" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at cpu.sv(334): object "ac" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at cpu.sv(335): object "x" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at cpu.sv(336): object "y" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at cpu.sv(430): object "ignored" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at cpu.sv(431): object "breakn" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at cpu.sv(432): object "decimal" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at cpu.sv(433): object "interrupt" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at cpu.sv(448): object "crossed" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at cpu.sv(248): truncated value with size 32 to match size of target (2)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(310): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(375): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(390): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(393): truncated value with size 24 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(437): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(450): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(467): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(517): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(518): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(521): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(536): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(539): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(562): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(574): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(590): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(595): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(616): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(626): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(631): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(662): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(665): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(672): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(681): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(691): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(734): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(742): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at cpu.sv(744): truncated value with size 32 to match size of target (16)
+Warning (10175): Verilog HDL warning at cpu.sv(754): ignoring unsupported system task
+Error (10028): Can't resolve multiple constant drivers for net "registers[3][7]" at cpu.sv(464) File: C:/Users/Andrew/Documents/GitHub/NESProject/FPGA_nes/cpu.sv Line: 464
+Error (10029): Constant driver at cpu.sv(265) File: C:/Users/Andrew/Documents/GitHub/NESProject/FPGA_nes/cpu.sv Line: 265
+Error (10028): Can't resolve multiple constant drivers for net "registers[3][6]" at cpu.sv(464) File: C:/Users/Andrew/Documents/GitHub/NESProject/FPGA_nes/cpu.sv Line: 464
+Error (10028): Can't resolve multiple constant drivers for net "registers[3][5]" at cpu.sv(464) File: C:/Users/Andrew/Documents/GitHub/NESProject/FPGA_nes/cpu.sv Line: 464
+Error (10028): Can't resolve multiple constant drivers for net "registers[3][4]" at cpu.sv(464) File: C:/Users/Andrew/Documents/GitHub/NESProject/FPGA_nes/cpu.sv Line: 464
+Error (10028): Can't resolve multiple constant drivers for net "registers[3][3]" at cpu.sv(464) File: C:/Users/Andrew/Documents/GitHub/NESProject/FPGA_nes/cpu.sv Line: 464
+Error (10028): Can't resolve multiple constant drivers for net "registers[3][2]" at cpu.sv(464) File: C:/Users/Andrew/Documents/GitHub/NESProject/FPGA_nes/cpu.sv Line: 464
+Error (10028): Can't resolve multiple constant drivers for net "registers[3][1]" at cpu.sv(464) File: C:/Users/Andrew/Documents/GitHub/NESProject/FPGA_nes/cpu.sv Line: 464
+Error (10028): Can't resolve multiple constant drivers for net "registers[3][0]" at cpu.sv(464) File: C:/Users/Andrew/Documents/GitHub/NESProject/FPGA_nes/cpu.sv Line: 464
+Error (10028): Can't resolve multiple constant drivers for net "registers[2][7]" at cpu.sv(464) File: C:/Users/Andrew/Documents/GitHub/NESProject/FPGA_nes/cpu.sv Line: 464
+Error (10028): Can't resolve multiple constant drivers for net "registers[2][6]" at cpu.sv(464) File: C:/Users/Andrew/Documents/GitHub/NESProject/FPGA_nes/cpu.sv Line: 464
+Error (10028): Can't resolve multiple constant drivers for net "registers[2][5]" at cpu.sv(464) File: C:/Users/Andrew/Documents/GitHub/NESProject/FPGA_nes/cpu.sv Line: 464
+Error (10028): Can't resolve multiple constant drivers for net "registers[2][4]" at cpu.sv(464) File: C:/Users/Andrew/Documents/GitHub/NESProject/FPGA_nes/cpu.sv Line: 464
+Error (10028): Can't resolve multiple constant drivers for net "registers[2][3]" at cpu.sv(464) File: C:/Users/Andrew/Documents/GitHub/NESProject/FPGA_nes/cpu.sv Line: 464
+Error (10028): Can't resolve multiple constant drivers for net "registers[2][2]" at cpu.sv(464) File: C:/Users/Andrew/Documents/GitHub/NESProject/FPGA_nes/cpu.sv Line: 464
+Error (10028): Can't resolve multiple constant drivers for net "registers[2][1]" at cpu.sv(464) File: C:/Users/Andrew/Documents/GitHub/NESProject/FPGA_nes/cpu.sv Line: 464
+Error (10028): Can't resolve multiple constant drivers for net "registers[2][0]" at cpu.sv(464) File: C:/Users/Andrew/Documents/GitHub/NESProject/FPGA_nes/cpu.sv Line: 464
+Error (10028): Can't resolve multiple constant drivers for net "registers[1][7]" at cpu.sv(464) File: C:/Users/Andrew/Documents/GitHub/NESProject/FPGA_nes/cpu.sv Line: 464
+Error (10028): Can't resolve multiple constant drivers for net "registers[1][6]" at cpu.sv(464) File: C:/Users/Andrew/Documents/GitHub/NESProject/FPGA_nes/cpu.sv Line: 464
+Error (12152): Can't elaborate user hierarchy "cpu:inst2"
+Info (144001): Generated suppressed messages file C:/Users/Andrew/Documents/GitHub/NESProject/FPGA_nes/output_files/FPGA_nes.map.smsg
+Error: Quartus II 64-Bit Analysis & Synthesis was unsuccessful. 20 errors, 46 warnings
+    Error: Peak virtual memory: 649 megabytes
+    Error: Processing ended: Thu May 14 04:05:10 2015
+    Error: Elapsed time: 00:00:28
+    Error: Total CPU time (on all processors): 00:00:44
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/Andrew/Documents/GitHub/NESProject/FPGA_nes/output_files/FPGA_nes.map.smsg.
+
+

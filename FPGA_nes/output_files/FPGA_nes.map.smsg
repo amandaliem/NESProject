@@ -1,0 +1,4 @@
+Warning (10273): Verilog HDL warning at cpu.sv(332): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at cpu.sv(377): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at cpu.sv(461): extended using "x" or "z"
+Warning (10268): Verilog HDL information at cpu.sv(464): always construct contains both blocking and non-blocking assignments

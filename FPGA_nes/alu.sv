@@ -1,7 +1,3 @@
-// original has AND OR XOR ADD SHIFTRIGHT //
-// but I have no idea how these create other operations so just hardcoding them //
-
-// OPS // 
 `define ADD 0
 `define SUB 1
 `define AND 2
@@ -13,10 +9,15 @@
 `define SHL 8
 `define RTR 9
 `define RTL 10
-`define LD  12  // not planning on putting lds through the adder 
+`define LD  12
 
+// RAM access time ~70ns?
+// NES version of 6502 doesn't use BCD 
 
-module alu (input clk,
+module alu (input clk, input immediate, input i_adc,
+				input [7:0]registers[3:0],
+				input [7:0]operand,
+				input [7:0]newvalue,
             input [7:0]operand1,
             input [7:0]operand2,
             input carry,
